@@ -3,7 +3,8 @@ import "@nomicfoundation/hardhat-toolbox";
 
 const ALCHEMY_API_KEY = vars.get("ALCHEMY_API_KEY");
 const POLYGONSCAN_API_KEY = vars.get("POLYGONSCAN_API_KEY");
-// const ETHERSCAN_API_KEY = vars.get("ETHERSCAN_API_KEY");
+const ETHERSCAN_API_KEY = vars.get("ETHERSCAN_API_KEY");
+
 const config: HardhatUserConfig = {
   solidity: "0.8.27",
   networks: {
@@ -26,7 +27,7 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: POLYGONSCAN_API_KEY,
+    apiKey: POLYGONSCAN_API_KEY || ETHERSCAN_API_KEY || "123",
     customChains: [
       {
         network: "polygonAmoy",
